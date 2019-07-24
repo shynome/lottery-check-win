@@ -16,6 +16,9 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: outputRoot,
+  alias: {
+    '@/components': path.resolve(__dirname, '../src/components'),
+  },
   plugins: {
     babel: {
       sourceMap: true,
