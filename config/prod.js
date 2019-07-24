@@ -14,5 +14,24 @@ module.exports = {
      *     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
      * }
      */
+    miniCssExtractPluginOption: {
+      filename: 'css/[name].[hash:8].css',
+      chunkFilename: 'css/[id].[chunkhash:8].css'
+    },
+    webpackChain(chain, webpack) {
+      const hashRule = (type) => {
+        chain.module.rules.get(type).uses.get("urlLoader").get("options").name = 
+          chain.module.rules.get(type).uses.get("urlLoader").get("options").name.replace("[name].[ext]", "[name].[hash:8].[ext]")
+      }
+      hashRule('font')
+      hashRule('image')
+      hashRule('media')
+      chain.merge({
+        output: {
+          filename: "[name].[chunkhash:8].js",
+          chunkFilename: chain.output.get("chunkFilename").replace("[name].js", "[name].[chunkhash:8].js"),
+        },
+      })
+    },
   }
 }
