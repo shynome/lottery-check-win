@@ -1,7 +1,8 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import Index from './pages/index'
+import "taro-ui/dist/style/index.scss";
 
-import './app.styl'
+import './app.global.styl'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -20,7 +21,13 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+
+      'pages/login/login',
+      'pages/login/email',
+      'pages/login/weapp',
+      'pages/login/wechat',
+
     ],
     window: {
       backgroundTextStyle: 'light',

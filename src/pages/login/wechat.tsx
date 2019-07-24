@@ -1,9 +1,8 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import './index.styl'
-import { AtDrawer, AtButton } from "taro-ui";
+import {  View } from "@tarojs/components";
+import { AtButton } from "taro-ui";
 
-export default class Index extends Component {
+export default class WechatLogin extends Component {
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -13,7 +12,7 @@ export default class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '微信网页授权登录',
   }
 
   componentWillMount () { }
@@ -28,8 +27,13 @@ export default class Index extends Component {
 
   render () {
     return (
-      <View>
-        <AtButton onClick={()=>Taro.navigateTo({url:'/pages/login/login'})}>login</AtButton>
+      <View className='root at-row at-row__align--center'>
+        <View className="at-col at-col__align--center">
+          <View className="btns">
+            <AtButton>邮箱登录</AtButton>
+            <AtButton onClick={ ()=>alert(55555) }>微信登录</AtButton>
+          </View>
+        </View>
       </View>
     )
   }
