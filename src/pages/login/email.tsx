@@ -4,8 +4,8 @@ import { AtButton, AtForm, AtInput, AtTabs, AtTabsPane, } from "taro-ui";
 import { BackLoginSwitch } from "./components/BackLoginSwitch";
 import { Center } from "@/components/index";
 
-import loginStyles from './login.styl'
-import styles from './email.styl'
+import loginStyles from './login.module.styl'
+import styles from './email.module.styl'
 
 interface State {
   current: number

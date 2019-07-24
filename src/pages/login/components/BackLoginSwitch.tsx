@@ -2,7 +2,7 @@ import Taro from "@tarojs/taro";
 import { Text, View } from "@tarojs/components";
 import { AtFab } from "taro-ui";
 
-import styles from "./BackLoginSwitch.styl";
+import styles from "./BackLoginSwitch.module.styl";
 
 export const BackLoginSwitch = ()=>{
   return (

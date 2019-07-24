@@ -1,9 +1,8 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import {  View } from "@tarojs/components";
 import { AtButton } from "taro-ui";
-import { BackLoginSwitch } from "./components/BackLoginSwitch";
 
-import styles from './login.styl'
+import styles from './login.module.styl'
 
 import { Center } from "@/components/index";
 
