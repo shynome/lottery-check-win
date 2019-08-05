@@ -28,6 +28,9 @@ class App extends Component {
       'pages/login/weapp',
       'pages/login/wechat',
 
+      'pages/mylottery/list',
+      'pages/mylottery/add',
+      
     ],
     window: {
       backgroundTextStyle: 'light',

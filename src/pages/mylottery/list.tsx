@@ -1,10 +1,11 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import './index.module.styl'
-import { AtDrawer, AtButton } from "taro-ui";
+import {  View, Text } from "@tarojs/components";
+import { AtButton, AtFab, AtIcon } from "taro-ui";
 import { BottomTab, Tabs } from "@/components/BottomTab";
 
-export default class Index extends Component {
+import styles from './list.module.styl'
+
+export default class MyLottery extends Component {
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -14,7 +15,7 @@ export default class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '登录',
   }
 
   componentWillMount () { }
@@ -28,10 +29,11 @@ export default class Index extends Component {
   componentDidHide () { }
 
   render () {
+    console.log(styles)
     return (
-      <View>
-        <AtButton onClick={()=>Taro.navigateTo({url:'/pages/login/login'})}>login</AtButton>
-        <BottomTab current={Tabs.Home}/>
+      <View >
+        <AtButton onClick={()=>Taro.navigateTo({url:"./add"})}>添加购票</AtButton>
+        <BottomTab current={Tabs.MyLottery}></BottomTab>
       </View>
     )
   }

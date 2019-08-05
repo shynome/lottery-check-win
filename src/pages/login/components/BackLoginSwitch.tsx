@@ -1,6 +1,6 @@
 import Taro from "@tarojs/taro";
 import { Text, View } from "@tarojs/components";
-import { AtFab } from "taro-ui";
+import { AtFab, AtIcon } from "taro-ui";
 
 import styles from "./BackLoginSwitch.module.styl";
 
@@ -8,7 +8,7 @@ export const BackLoginSwitch = ()=>{
   return (
     <View className={styles.main}>
       <AtFab onClick={ ()=>Taro.redirectTo({url:'/pages/login/login'}) }>
-        <Text className='at-fab__icon at-icon at-icon-close'></Text>
+        <AtIcon value={'close'}></AtIcon>
       </AtFab>
     </View>
   )
