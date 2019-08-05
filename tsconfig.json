@@ -25,6 +25,7 @@
     ],
     "paths": {
       "@/components/*": ["./src/components/*"],
+      "@/common/*": ["./src/common/*"],
     }
   },
   "exclude": [
