@@ -49,15 +49,12 @@ export default class MyLotteryAdd extends Component<{}, State> {
 
   renderLotteryInput = ({ codes, id }: Item, index: number) => {
     return (
-      <View key={id}>
-        {index === 0 ? null : <AtDivider height={5} />}
-        <View className={`at-row at-row__align--center ${styles.item}`}>
-          <View className={'at-col'}>
-            <LotteryInput codes={codes} onChange={(codes) => { console.log(codes) }}></LotteryInput>
-          </View>
-          <View className={`at-col at-col-1 at-col--auto ${styles['del-btn']}`} onClick={() => this.delLotteryCode(id)}>
-            <AtIcon size={14} value='close'></AtIcon>
-          </View>
+      <View key={id} className={`at-row at-row__align--center ${styles.item} ${index%2?styles['item-even']:''}`}>
+        <View className={'at-col'}>
+          <LotteryInput codes={codes} onChange={(codes) => { console.log(codes) }}></LotteryInput>
+        </View>
+        <View className={`at-col at-col-1 at-col--auto ${styles['del-btn']}`} onClick={() => this.delLotteryCode(id)}>
+          <AtIcon size={14} value='close'></AtIcon>
         </View>
       </View>
     )
@@ -87,7 +84,7 @@ export default class MyLotteryAdd extends Component<{}, State> {
         <View className={'at-article'}></View>
         <AtForm>
           {this.state.LotteryList.map(this.renderLotteryInput)}
-          <AtButton onClick={this.addLotteryCode}>新增一注</AtButton>
+          <AtButton className={styles['submit']} onClick={this.addLotteryCode}>新增一注</AtButton>
         </AtForm>
       </View>
     )
