@@ -5,6 +5,18 @@ const outputRoot = path.join('dist',process.env.TARO_ENV)
 fse.removeSync(outputRoot)
 fse.mkdirpSync(outputRoot)
 
+let alias = {}
+const jsonc = require('jsonc-parser')
+const tsConfigPath = path.join(__dirname, '../tsconfig.json')
+/**@type {typeof import('../tsconfig.json')} */
+const tsConfig = jsonc.parse(fse.readFileSync(tsConfigPath, 'utf8'), [], true)
+const tsAlias = tsConfig.compilerOptions.paths
+for (let key in tsAlias) {
+  let name = key.slice(0,-2)
+  let p = tsAlias[key][0].slice(0,-2)
+  alias[name] = path.resolve(__dirname, '../', p)
+}
+
 const config = {
   projectName: 'lottery-check-win',
   date: '2019-7-23',
@@ -16,9 +28,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: outputRoot,
-  alias: {
-    '@/components': path.resolve(__dirname, '../src/components'),
-  },
+  alias: alias,
   plugins: {
     babel: {
       sourceMap: true,
